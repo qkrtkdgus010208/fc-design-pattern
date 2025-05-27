@@ -14,7 +14,7 @@ public class E01GameManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<E01GameManager>();
+                instance = FindAnyObjectByType<E01GameManager>();
             }
             return instance;
         }
