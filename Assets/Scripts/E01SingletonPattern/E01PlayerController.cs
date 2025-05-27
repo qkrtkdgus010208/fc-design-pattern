@@ -25,6 +25,9 @@ public class E01PlayerController : MonoBehaviour
         characterController.Move(direction * speed * Time.deltaTime);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 1f);
+
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Vector3 targetPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
