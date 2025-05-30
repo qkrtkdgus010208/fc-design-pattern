@@ -35,7 +35,7 @@ public class E01GameManager : MonoBehaviour
 
     public void UpdatePlayerPosition(Vector3 playerPosition)
     {
-        Debug.Log($"Player Position: {playerPosition}");
+        // Debug.Log($"Player Position: {playerPosition}");
     }
 
     public void LoadNextLevel()
