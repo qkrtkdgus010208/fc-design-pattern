@@ -29,7 +29,7 @@ public class E02EnemyPool2 : MonoBehaviour
             if (enemyPool == null)
             {
                 enemyPool = new ObjectPool<GameObject>(
-                        createFunc: () => Instantiate(enemyPrefab),                                              // Object Pool에 새로운 오브젝트가 생성 되어야 할 때 호출되는 메서드
+                        createFunc: () => Instantiate(enemyPrefab),                      // Object Pool에 새로운 오브젝트가 생성 되어야 할 때 호출되는 메서드
                         actionOnGet: enemy => enemy.gameObject.SetActive(true),          // Object Pool에 있는 오브젝트를 사용하고자 할 때 처리해야 할 내용을 담을 메서드
                         actionOnRelease: enemy => enemy.gameObject.SetActive(false),     // Object Pool에 반납할 오브젝트에 대한 처리 내용을 담을 메서드
                         actionOnDestroy: enemy => Destroy(enemy),                        // Object Pool에서 관리 중인 오브젝트가 소멸 되어야 할 때 처리를 담을 메서드
