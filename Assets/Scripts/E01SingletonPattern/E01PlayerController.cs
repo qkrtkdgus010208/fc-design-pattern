@@ -26,7 +26,7 @@ public class E01PlayerController : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 1f);
+        //Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 1f);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
