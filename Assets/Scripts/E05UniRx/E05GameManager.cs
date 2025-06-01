@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +19,7 @@ public class E05GameManager : MonoBehaviour, E04IObserver<E05PlayerData>
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<E05GameManager>();
+                instance = FindAnyObjectByType<E05GameManager>();
             }
             return instance;
         }
@@ -40,13 +40,13 @@ public class E05GameManager : MonoBehaviour, E04IObserver<E05PlayerData>
 
     private void Start()
     {
-        E05PlayerController playerController = FindObjectOfType<E05PlayerController>();
+        E05PlayerController playerController = FindAnyObjectByType<E05PlayerController>();
         playerController.Subscribe(this);
     }
 
     public void UpdatePlayerPosition(Vector3 playerPosition)
     {
-        Debug.Log($"Player Position: {playerPosition}");
+        //Debug.Log($"Player Position: {playerPosition}");
     }
 
     public void LoadNextLevel()
@@ -76,8 +76,11 @@ public class E05GameManager : MonoBehaviour, E04IObserver<E05PlayerData>
 
     public void OnCompleted()
     {
-        hpBarBackground.enabled = false;
-        hpBar.enabled = false;
+        if (hpBarBackground != null)
+            hpBarBackground.enabled = false;
+
+        if (hpBar != null)
+            hpBar.enabled = false;
     }
     #endregion
 }
