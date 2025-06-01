@@ -76,8 +76,11 @@ public class E04GameManager : MonoBehaviour, E04IObserver<E04PlayerData>
 
     public void OnCompleted()
     {
-        hpBarBackground.enabled = false;
-        hpBar.enabled = false;
+        if (hpBarBackground != null)
+            hpBarBackground.enabled = false;
+
+        if (hpBar != null)
+            hpBar.enabled = false;
     }
     #endregion
 }
