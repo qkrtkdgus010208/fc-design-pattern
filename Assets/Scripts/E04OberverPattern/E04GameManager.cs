@@ -19,7 +19,7 @@ public class E04GameManager : MonoBehaviour, E04IObserver<E04PlayerData>
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<E04GameManager>();
+                instance = FindAnyObjectByType<E04GameManager>();
             }
             return instance;
         }
@@ -40,7 +40,7 @@ public class E04GameManager : MonoBehaviour, E04IObserver<E04PlayerData>
 
     private void Start()
     {
-        E04PlayerController playerController = FindObjectOfType<E04PlayerController>();
+        E04PlayerController playerController = FindAnyObjectByType<E04PlayerController>();
         playerController.Subscribe(this);
     }
 
