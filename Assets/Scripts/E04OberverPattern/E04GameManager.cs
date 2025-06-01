@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,7 +46,7 @@ public class E04GameManager : MonoBehaviour, E04IObserver<E04PlayerData>
 
     public void UpdatePlayerPosition(Vector3 playerPosition)
     {
-        Debug.Log($"Player Position: {playerPosition}");
+        //Debug.Log($"Player Position: {playerPosition}");
     }
 
     public void LoadNextLevel()
