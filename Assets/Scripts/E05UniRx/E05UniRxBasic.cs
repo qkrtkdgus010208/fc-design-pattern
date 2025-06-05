@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
@@ -26,8 +26,8 @@ public class E05UniRxBasic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
         // Subject Example
+        /*
         Subject<int> subject = new Subject<int>();
 
         subject.Subscribe(v => Debug.Log("Value: " + v));
@@ -38,6 +38,7 @@ public class E05UniRxBasic : MonoBehaviour
 
         subject.OnCompleted();
         */
+
 
         // Reactive Property Example
         /*
@@ -59,6 +60,7 @@ public class E05UniRxBasic : MonoBehaviour
         player.Dagame(10);
         */
 
+
         // Factory Method Example
         /*
         IObservable<string> messageObject = Observable.Create<string>(observer =>
@@ -77,45 +79,45 @@ public class E05UniRxBasic : MonoBehaviour
         /*
         Observable.Start(() =>
         {
-            Debug.Log("∑Œ±◊¿Œ ¡ﬂ...");
+            Debug.Log("Î°úÍ∑∏Ïù∏ Ï§ë...");
             System.Threading.Thread.Sleep(3000);
             return true;
         }).SelectMany(result => Observable.Start(() =>
         {
             if (result)
             {
-                Debug.Log("∑Œ±◊¿Œ øœ∑·!");
-                Debug.Log("Ω∫≈◊¿Ã¡ˆ ∑Œµ˘ ¡ﬂ...");
+                Debug.Log("Î°úÍ∑∏Ïù∏ ÏôÑÎ£å!");
+                Debug.Log("Ïä§ÌÖåÏù¥ÏßÄ Î°úÎî© Ï§ë...");
                 System.Threading.Thread.Sleep(3000);
                 return true;
             }
             else
             {
-                Debug.Log("∑Œµ˘ Ω«∆–");
+                Debug.Log("Î°úÎî© Ïã§Ìå®");
                 return false;
             }
         }))
         .ObserveOnMainThread()
-        .Subscribe(result => Debug.Log(result ? "Ω∫≈◊¿Ã¡ˆ ∑Œµ˘ øœ∑·" : "∞‘¿” ¡æ∑·"));
+        .Subscribe(result => Debug.Log(result ? "Ïä§ÌÖåÏù¥ÏßÄ Î°úÎî© ÏôÑÎ£å" : "Í≤åÏûÑ Ï¢ÖÎ£å"));
         */
 
-        // Trigger Example
 
+        // Trigger Example
         /*
         this.OnCollisionEnterAsObservable()
             .Where(collision => collision.gameObject.CompareTag("Player"))
-            .Subscribe(collision => Debug.Log("«√∑π¿ÃæÓøÕ √Êµπ πﬂª˝"));
+            .Subscribe(collision => Debug.Log("ÌîåÎ†àÏù¥Ïñ¥ÏôÄ Ï∂©Îèå Î∞úÏÉù"));
 
         this.OnTriggerEnterAsObservable()
             .Where(collision => collision.gameObject.CompareTag("Player"))
-            .Subscribe(collision => Debug.Log("«√∑π¿ÃæÓøÕ √Êµπ πﬂª˝"));
+            .Subscribe(collision => Debug.Log("ÌîåÎ†àÏù¥Ïñ¥ÏôÄ Ï∂©Îèå Î∞úÏÉù"));
 
         this.UpdateAsObservable()
             .Where(_ => Input.GetKeyDown(KeyCode.Space))
-            .Subscribe(_ => Debug.Log("Ω∫∆‰¿ÃΩ∫ πˆ∆∞ ¿‘∑¬"));
+            .Subscribe(_ => Debug.Log("Ïä§ÌéòÏù¥Ïä§ Î≤ÑÌäº ÏûÖÎ†•"));
 
         this.FixedUpdateAsObservable()
-            .Subscribe(_ => Debug.Log("Fixed Update »£√‚"));
+            .Subscribe(_ => Debug.Log("Fixed Update Ìò∏Ï∂ú"));
         */
 
         var clickStream = this.UpdateAsObservable()
@@ -123,7 +125,6 @@ public class E05UniRxBasic : MonoBehaviour
 
         clickStream.Buffer(TimeSpan.FromMilliseconds(500))
             .Where(click => click.Count >= 2)
-            .Subscribe(click => Debug.Log("¥ı∫Ì≈¨∏Ø πﬂª˝!"));
-
+            .Subscribe(click => Debug.Log("ÎçîÎ∏îÌÅ¥Î¶≠ Î∞úÏÉù!"));
     }
 }
